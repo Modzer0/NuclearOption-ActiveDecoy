@@ -1,0 +1,25 @@
+# Decompiled game code (not ours to distribute)
+decompiled/
+decompiled qol/
+
+# BepInEx runtime (game install files)
+BepInEx/
+
+# Build output
+src/**/bin/
+src/**/obj/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Dev notes (local only)
+NOTES_*.md
+CONTEXT_TRANSFER.md
