@@ -50,4 +50,4 @@ The build automatically copies the DLL to the game's `BepInEx/plugins/` folder.
 
 ## License
 
-MIT
+GPLv3
