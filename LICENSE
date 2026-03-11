@@ -672,3 +672,17 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+
+================================================================================
+                            ADDENDUM — CALIFORNIA
+
+Due to the ambiguity surrounding the definition of "developer" under California
+Assembly Bill 1043 (AB 1043), and given that GitHub serves as a distribution
+mechanism for this software, persons located within the State of California are
+not granted license to use, copy, modify, or distribute this game modification.
+
+This restriction applies solely to individuals and entities subject to the
+jurisdiction of the State of California. All other terms of the GNU General
+Public License v3 remain in full effect for all other persons and jurisdictions.
+================================================================================
