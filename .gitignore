@@ -2,6 +2,9 @@
 decompiled/
 decompiled qol/
 QoL 1.1.6.3 Decompile/
+NO decompile/
+QOL decompile/
+
 
 # BepInEx runtime (game install files)
 BepInEx/
@@ -15,6 +18,7 @@ src/**/obj/
 .vscode/
 *.user
 *.suo
+.kiro
 
 # OS
 Thumbs.db

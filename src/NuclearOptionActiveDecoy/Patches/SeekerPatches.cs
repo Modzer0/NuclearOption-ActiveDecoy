@@ -41,24 +41,31 @@ namespace NuclearOptionActiveDecoy.Patches
             if (ActiveDecoyBehavior.ActiveDecoys.Count == 0)
                 return;
 
-            // Access the missile and target via Harmony traverse
-            var missile = Traverse.Create(seeker).Field("missile").GetValue<Missile>();
-            var targetUnit = Traverse.Create(seeker).Field("targetUnit").GetValue<Unit>();
+            // Access the missile and target via Harmony traverse (null-safe)
+            var missileField = Traverse.Create(seeker).Field("missile");
+            if (!missileField.FieldExists()) return;
+            var missile = missileField.GetValue<Missile>();
+
+            var targetField = Traverse.Create(seeker).Field("targetUnit");
+            if (!targetField.FieldExists()) return;
+            var targetUnit = targetField.GetValue<Unit>();
 
             if (missile == null || targetUnit == null)
                 return;
 
-            // Get the seeker's radar parameters
+            // Get the seeker's radar parameters (null-safe)
             RadarParams radarParams;
             if (seeker is ARHSeeker)
             {
-                radarParams = Traverse.Create(seeker)
-                    .Field("radarParameters").GetValue<RadarParams>();
+                var rpField = Traverse.Create(seeker).Field("radarParameters");
+                if (!rpField.FieldExists()) return;
+                radarParams = rpField.GetValue<RadarParams>();
             }
             else if (seeker is SARHSeeker)
             {
-                radarParams = Traverse.Create(seeker)
-                    .Field("radarParams").GetValue<RadarParams>();
+                var rpField = Traverse.Create(seeker).Field("radarParams");
+                if (!rpField.FieldExists()) return;
+                radarParams = rpField.GetValue<RadarParams>();
             }
             else return;
 
@@ -116,7 +123,9 @@ namespace NuclearOptionActiveDecoy.Patches
             }
 
             // Null out the target unit so the missile loses track of the aircraft
-            Traverse.Create(seeker).Field("targetUnit").SetValue(null);
+            var targetUnitField = Traverse.Create(seeker).Field("targetUnit");
+            if (targetUnitField.FieldExists())
+                targetUnitField.SetValue(null);
             missile.SetTarget(null);
 
             Plugin.Log.LogDebug(

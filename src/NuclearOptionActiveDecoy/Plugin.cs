@@ -149,6 +149,6 @@ namespace NuclearOptionActiveDecoy
     {
         public const string PLUGIN_GUID = "com.nuclearoption.activedecoy";
         public const string PLUGIN_NAME = "Active Decoy Countermeasure";
-        public const string PLUGIN_VERSION = "0.5.0";
+        public const string PLUGIN_VERSION = "0.6.0";
     }
 }
